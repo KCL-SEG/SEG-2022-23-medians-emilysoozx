@@ -1,6 +1,18 @@
 """Median calculator."""
 """ENTER YOUR SOLUTION HERE!"""
 
+def find_median(numbers):
+
+    numbers.sort()
+
+    if len(numbers) == 1:
+        return numbers[0]
+    
+    if len(numbers)%2 == 0:
+        return (numbers[len(numbers)//2] + numbers[len(numbers)//2 - 1])/2
+    
+    return numbers[len(numbers)//2]
+
 while True:
     try:
         print("Enter a list of numbers separated by commas: ")
@@ -11,17 +23,4 @@ while True:
         break
 
 print(numbers)
-    
-def find_median(numbers):
-    n = len(numbers)
-
-    if(n%2 == 1):
-        median = numbers[n//2]
-    else:
-        x = numbers[(n-1)//2]
-        y = numbers[n//2]
-        median = (x+y)/2
-    return median
-
-median = find_median(numbers)
-print('Median:', median)
+print(find_median(numbers))
